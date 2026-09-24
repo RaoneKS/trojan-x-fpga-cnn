@@ -1,0 +1,28 @@
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSXFC6D6F31I7
+set_global_assignment -name TOP_LEVEL_ENTITY cnn_fpga_top
+
+set_global_assignment -name VERILOG_FILE rtl/cnn_small_core_m10k.v
+
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 8
+
+set_global_assignment -name SDC_FILE cnn_full_small.sdc
+
+set_global_assignment -name VERILOG_FILE rtl/cnn_fpga_top.v
+
+set_location_assignment PIN_AF14 -to CLOCK_50
+set_location_assignment PIN_AJ4  -to KEY[0]
+
+set_location_assignment PIN_AA24 -to LEDR[0]
+set_location_assignment PIN_AB23 -to LEDR[1]
+set_location_assignment PIN_AC23 -to LEDR[2]
+set_location_assignment PIN_AD24 -to LEDR[3]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[3]
+
+set_global_assignment -name LAST_QUARTUS_VERSION "25.1std.0 Lite Edition"

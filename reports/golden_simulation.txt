@@ -1,0 +1,15 @@
+VCD info: dumpfile cnn_full.vcd opened for output.
+
+========================================
+ CNN MNIST FULL INFERENCE TEST
+========================================
+
+Inference complete.
+Cycle count      = 346563
+Predicted class  = 7
+Expected class   = 7
+
+========================================
+ PASS: CNN predicted digit 7
+========================================
+tb/tb_cnn_small_core.v:73: $finish called at 6931370000 (1ps)

@@ -1,0 +1,33 @@
+=== CNN FPGA HEALTHY BASELINE ===
+
+Project: cnn_full_small
+Device: 5CSXFC6D6F31I7
+
+FUNCTIONAL SIMULATION
+Cycles: 346563
+Predicted class: 7
+Expected class: 7
+Result: PASS
+
+FPGA RESOURCES
+ALMs: 1153
+Registers: 902
+RAM Blocks: 71
+Block Memory Bits: 455104
+DSP Blocks: 13
+
+TIMING
+Worst-case Fmax: 58.59 MHz
+Setup Slack: +2.933 ns
+Hold Slack: +0.354 ns
+Timing Violations: 0
+
+IMPLEMENTATION
+SOF: cnn_full_small.sof
+Quartus compilation: SUCCESSFUL
+Power Analyzer: Not run
+
+STATUS
+Healthy CNN FPGA baseline established.
+This baseline will be used as the golden reference
+for subsequent hardware Trojan detection experiments.

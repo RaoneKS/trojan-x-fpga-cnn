@@ -1,0 +1,1663 @@
+Analysis & Synthesis report for cnn_full_small
+Fri Sep 11 02:22:30 2026
+Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. State Machine - |cnn_fpga_top|cnn_small_core:u_core|state
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Registers Packed Into Inferred Megafunctions
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for cnn_small_core:u_core|cnn_sp_ram:p2_ram|altsyncram:mem_rtl_0|altsyncram_n6p1:auto_generated
+ 16. Source assignments for cnn_small_core:u_core|cnn_sp_ram:c2_ram|altsyncram:mem_rtl_0|altsyncram_f9p1:auto_generated
+ 17. Source assignments for cnn_small_core:u_core|cnn_sp_ram:p1_ram|altsyncram:mem_rtl_0|altsyncram_r9p1:auto_generated
+ 18. Source assignments for cnn_small_core:u_core|cnn_sp_ram:c1_ram|altsyncram:mem_rtl_0|altsyncram_p9p1:auto_generated
+ 19. Source assignments for cnn_small_core:u_core|cnn_sp_ram:fcw_ram|altsyncram:mem_rtl_0|altsyncram_q4g1:auto_generated
+ 20. Source assignments for cnn_small_core:u_core|cnn_sp_ram:c2w_ram|altsyncram:mem_rtl_0|altsyncram_q0g1:auto_generated
+ 21. Source assignments for cnn_small_core:u_core|cnn_sp_ram:c1w_ram|altsyncram:mem_rtl_0|altsyncram_mvf1:auto_generated
+ 22. Source assignments for cnn_small_core:u_core|cnn_sp_ram:image_ram|altsyncram:mem_rtl_0|altsyncram_62g1:auto_generated
+ 23. Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:image_ram
+ 24. Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c1w_ram
+ 25. Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c2w_ram
+ 26. Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:fcw_ram
+ 27. Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c1_ram
+ 28. Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:p1_ram
+ 29. Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c2_ram
+ 30. Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:p2_ram
+ 31. Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:p2_ram|altsyncram:mem_rtl_0
+ 32. Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c2_ram|altsyncram:mem_rtl_0
+ 33. Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:p1_ram|altsyncram:mem_rtl_0
+ 34. Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c1_ram|altsyncram:mem_rtl_0
+ 35. Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:fcw_ram|altsyncram:mem_rtl_0
+ 36. Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c2w_ram|altsyncram:mem_rtl_0
+ 37. Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c1w_ram|altsyncram:mem_rtl_0
+ 38. Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:image_ram|altsyncram:mem_rtl_0
+ 39. altsyncram Parameter Settings by Entity Instance
+ 40. Port Connectivity Checks: "cnn_small_core:u_core|cnn_sp_ram:fcw_ram"
+ 41. Port Connectivity Checks: "cnn_small_core:u_core|cnn_sp_ram:c2w_ram"
+ 42. Port Connectivity Checks: "cnn_small_core:u_core|cnn_sp_ram:c1w_ram"
+ 43. Port Connectivity Checks: "cnn_small_core:u_core|cnn_sp_ram:image_ram"
+ 44. Port Connectivity Checks: "cnn_small_core:u_core"
+ 45. Post-Synthesis Netlist Statistics for Top Partition
+ 46. Elapsed Time Per Partition
+ 47. Analysis & Synthesis Messages
+ 48. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++---------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Sep 11 02:22:30 2026           ;
+; Quartus Prime Version           ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
+; Revision Name                   ; cnn_full_small                                  ;
+; Top-level Entity Name           ; cnn_fpga_top                                    ;
+; Family                          ; Cyclone V                                       ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 821                                             ;
+; Total pins                      ; 6                                               ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 455,104                                         ;
+; Total DSP Blocks                ; 13                                              ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSXFC6D6F31I7     ;                    ;
+; Top-level entity name                                                           ; cnn_fpga_top       ; cnn_full_small     ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Maximum processors allowed for parallel compilation                             ; 8                  ;                    ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                              ;
++----------------------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                   ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                               ; Library ;
++----------------------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------+---------+
+; rtl/cnn_small_core_m10k.v                          ; yes             ; User Verilog HDL File                                 ; /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v                          ;         ;
+; rtl/cnn_fpga_top.v                                 ; yes             ; User Verilog HDL File                                 ; /home/raone/DE10_Project/cnn_full_small/rtl/cnn_fpga_top.v                                 ;         ;
+; data/int8/conv2_bias.mem                           ; yes             ; Auto-Found Unspecified File                           ; /home/raone/DE10_Project/cnn_full_small/data/int8/conv2_bias.mem                           ;         ;
+; data/int8/conv1_bias.mem                           ; yes             ; Auto-Found Unspecified File                           ; /home/raone/DE10_Project/cnn_full_small/data/int8/conv1_bias.mem                           ;         ;
+; data/int8/fc1_bias.mem                             ; yes             ; Auto-Found Unspecified File                           ; /home/raone/DE10_Project/cnn_full_small/data/int8/fc1_bias.mem                             ;         ;
+; altsyncram.tdf                                     ; yes             ; Megafunction                                          ; /home/raone/intelFPGA/25.1lite/quartus/libraries/megafunctions/altsyncram.tdf              ;         ;
+; stratix_ram_block.inc                              ; yes             ; Megafunction                                          ; /home/raone/intelFPGA/25.1lite/quartus/libraries/megafunctions/stratix_ram_block.inc       ;         ;
+; lpm_mux.inc                                        ; yes             ; Megafunction                                          ; /home/raone/intelFPGA/25.1lite/quartus/libraries/megafunctions/lpm_mux.inc                 ;         ;
+; lpm_decode.inc                                     ; yes             ; Megafunction                                          ; /home/raone/intelFPGA/25.1lite/quartus/libraries/megafunctions/lpm_decode.inc              ;         ;
+; aglobal251.inc                                     ; yes             ; Megafunction                                          ; /home/raone/intelFPGA/25.1lite/quartus/libraries/megafunctions/aglobal251.inc              ;         ;
+; a_rdenreg.inc                                      ; yes             ; Megafunction                                          ; /home/raone/intelFPGA/25.1lite/quartus/libraries/megafunctions/a_rdenreg.inc               ;         ;
+; altrom.inc                                         ; yes             ; Megafunction                                          ; /home/raone/intelFPGA/25.1lite/quartus/libraries/megafunctions/altrom.inc                  ;         ;
+; altram.inc                                         ; yes             ; Megafunction                                          ; /home/raone/intelFPGA/25.1lite/quartus/libraries/megafunctions/altram.inc                  ;         ;
+; altdpram.inc                                       ; yes             ; Megafunction                                          ; /home/raone/intelFPGA/25.1lite/quartus/libraries/megafunctions/altdpram.inc                ;         ;
+; db/altsyncram_n6p1.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home/raone/DE10_Project/cnn_full_small/db/altsyncram_n6p1.tdf                             ;         ;
+; db/altsyncram_f9p1.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home/raone/DE10_Project/cnn_full_small/db/altsyncram_f9p1.tdf                             ;         ;
+; db/altsyncram_r9p1.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home/raone/DE10_Project/cnn_full_small/db/altsyncram_r9p1.tdf                             ;         ;
+; db/altsyncram_p9p1.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home/raone/DE10_Project/cnn_full_small/db/altsyncram_p9p1.tdf                             ;         ;
+; db/altsyncram_q4g1.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home/raone/DE10_Project/cnn_full_small/db/altsyncram_q4g1.tdf                             ;         ;
+; db/cnn_full_small.ram0_cnn_sp_ram_f98867b6.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/raone/DE10_Project/cnn_full_small/db/cnn_full_small.ram0_cnn_sp_ram_f98867b6.hdl.mif ;         ;
+; db/altsyncram_q0g1.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home/raone/DE10_Project/cnn_full_small/db/altsyncram_q0g1.tdf                             ;         ;
+; db/cnn_full_small.ram0_cnn_sp_ram_60396215.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/raone/DE10_Project/cnn_full_small/db/cnn_full_small.ram0_cnn_sp_ram_60396215.hdl.mif ;         ;
+; db/altsyncram_mvf1.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home/raone/DE10_Project/cnn_full_small/db/altsyncram_mvf1.tdf                             ;         ;
+; db/cnn_full_small.ram0_cnn_sp_ram_9b7b8551.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/raone/DE10_Project/cnn_full_small/db/cnn_full_small.ram0_cnn_sp_ram_9b7b8551.hdl.mif ;         ;
+; db/altsyncram_62g1.tdf                             ; yes             ; Auto-Generated Megafunction                           ; /home/raone/DE10_Project/cnn_full_small/db/altsyncram_62g1.tdf                             ;         ;
+; db/cnn_full_small.ram0_cnn_sp_ram_c2d32500.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/raone/DE10_Project/cnn_full_small/db/cnn_full_small.ram0_cnn_sp_ram_c2d32500.hdl.mif ;         ;
++----------------------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 1106           ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 1917           ;
+;     -- 7 input functions                    ; 1              ;
+;     -- 6 input functions                    ; 283            ;
+;     -- 5 input functions                    ; 122            ;
+;     -- 4 input functions                    ; 123            ;
+;     -- <=3 input functions                  ; 1388           ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 821            ;
+;                                             ;                ;
+; I/O pins                                    ; 6              ;
+; Total MLAB memory bits                      ; 0              ;
+; Total block memory bits                     ; 455104         ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 13             ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 981            ;
+; Total fan-out                               ; 13446          ;
+; Average fan-out                             ; 4.60           ;
++---------------------------------------------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                   ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                          ; Entity Name     ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; |cnn_fpga_top                                ; 1917 (1)            ; 821 (2)                   ; 455104            ; 13         ; 6    ; 0            ; |cnn_fpga_top                                                                                                ; cnn_fpga_top    ; work         ;
+;    |cnn_small_core:u_core|                   ; 1916 (1916)         ; 819 (819)                 ; 455104            ; 13         ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core                                                                          ; cnn_small_core  ; work         ;
+;       |cnn_sp_ram:c1_ram|                    ; 0 (0)               ; 0 (0)                     ; 200704            ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:c1_ram                                                        ; cnn_sp_ram      ; work         ;
+;          |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 200704            ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:c1_ram|altsyncram:mem_rtl_0                                   ; altsyncram      ; work         ;
+;             |altsyncram_p9p1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 200704            ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:c1_ram|altsyncram:mem_rtl_0|altsyncram_p9p1:auto_generated    ; altsyncram_p9p1 ; work         ;
+;       |cnn_sp_ram:c1w_ram|                   ; 0 (0)               ; 0 (0)                     ; 576               ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:c1w_ram                                                       ; cnn_sp_ram      ; work         ;
+;          |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 576               ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:c1w_ram|altsyncram:mem_rtl_0                                  ; altsyncram      ; work         ;
+;             |altsyncram_mvf1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 576               ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:c1w_ram|altsyncram:mem_rtl_0|altsyncram_mvf1:auto_generated   ; altsyncram_mvf1 ; work         ;
+;       |cnn_sp_ram:c2_ram|                    ; 0 (0)               ; 0 (0)                     ; 100352            ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:c2_ram                                                        ; cnn_sp_ram      ; work         ;
+;          |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 100352            ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:c2_ram|altsyncram:mem_rtl_0                                   ; altsyncram      ; work         ;
+;             |altsyncram_f9p1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 100352            ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:c2_ram|altsyncram:mem_rtl_0|altsyncram_f9p1:auto_generated    ; altsyncram_f9p1 ; work         ;
+;       |cnn_sp_ram:c2w_ram|                   ; 0 (0)               ; 0 (0)                     ; 9216              ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:c2w_ram                                                       ; cnn_sp_ram      ; work         ;
+;          |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 9216              ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:c2w_ram|altsyncram:mem_rtl_0                                  ; altsyncram      ; work         ;
+;             |altsyncram_q0g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 9216              ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:c2w_ram|altsyncram:mem_rtl_0|altsyncram_q0g1:auto_generated   ; altsyncram_q0g1 ; work         ;
+;       |cnn_sp_ram:fcw_ram|                   ; 0 (0)               ; 0 (0)                     ; 62720             ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:fcw_ram                                                       ; cnn_sp_ram      ; work         ;
+;          |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 62720             ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:fcw_ram|altsyncram:mem_rtl_0                                  ; altsyncram      ; work         ;
+;             |altsyncram_q4g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 62720             ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:fcw_ram|altsyncram:mem_rtl_0|altsyncram_q4g1:auto_generated   ; altsyncram_q4g1 ; work         ;
+;       |cnn_sp_ram:image_ram|                 ; 0 (0)               ; 0 (0)                     ; 6272              ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:image_ram                                                     ; cnn_sp_ram      ; work         ;
+;          |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 6272              ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:image_ram|altsyncram:mem_rtl_0                                ; altsyncram      ; work         ;
+;             |altsyncram_62g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 6272              ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:image_ram|altsyncram:mem_rtl_0|altsyncram_62g1:auto_generated ; altsyncram_62g1 ; work         ;
+;       |cnn_sp_ram:p1_ram|                    ; 0 (0)               ; 0 (0)                     ; 50176             ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:p1_ram                                                        ; cnn_sp_ram      ; work         ;
+;          |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 50176             ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:p1_ram|altsyncram:mem_rtl_0                                   ; altsyncram      ; work         ;
+;             |altsyncram_r9p1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 50176             ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:p1_ram|altsyncram:mem_rtl_0|altsyncram_r9p1:auto_generated    ; altsyncram_r9p1 ; work         ;
+;       |cnn_sp_ram:p2_ram|                    ; 0 (0)               ; 0 (0)                     ; 25088             ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:p2_ram                                                        ; cnn_sp_ram      ; work         ;
+;          |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 25088             ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:p2_ram|altsyncram:mem_rtl_0                                   ; altsyncram      ; work         ;
+;             |altsyncram_n6p1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 25088             ; 0          ; 0    ; 0            ; |cnn_fpga_top|cnn_small_core:u_core|cnn_sp_ram:p2_ram|altsyncram:mem_rtl_0|altsyncram_n6p1:auto_generated    ; altsyncram_n6p1 ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                    ;
++-----------------------------------------------------------------------------------------------------------+------------+------------------+--------------+--------------+--------------+--------------+--------+----------------------------------------------------+
+; Name                                                                                                      ; Type       ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF                                                ;
++-----------------------------------------------------------------------------------------------------------+------------+------------------+--------------+--------------+--------------+--------------+--------+----------------------------------------------------+
+; cnn_small_core:u_core|cnn_sp_ram:c1_ram|altsyncram:mem_rtl_0|altsyncram_p9p1:auto_generated|ALTSYNCRAM    ; M10K block ; Simple Dual Port ; 6272         ; 32           ; 6272         ; 32           ; 200704 ; None                                               ;
+; cnn_small_core:u_core|cnn_sp_ram:c1w_ram|altsyncram:mem_rtl_0|altsyncram_mvf1:auto_generated|ALTSYNCRAM   ; M10K block ; ROM              ; 72           ; 8            ; --           ; --           ; 576    ; db/cnn_full_small.ram0_cnn_sp_ram_9b7b8551.hdl.mif ;
+; cnn_small_core:u_core|cnn_sp_ram:c2_ram|altsyncram:mem_rtl_0|altsyncram_f9p1:auto_generated|ALTSYNCRAM    ; M10K block ; Simple Dual Port ; 3136         ; 32           ; 3136         ; 32           ; 100352 ; None                                               ;
+; cnn_small_core:u_core|cnn_sp_ram:c2w_ram|altsyncram:mem_rtl_0|altsyncram_q0g1:auto_generated|ALTSYNCRAM   ; M10K block ; ROM              ; 1152         ; 8            ; --           ; --           ; 9216   ; db/cnn_full_small.ram0_cnn_sp_ram_60396215.hdl.mif ;
+; cnn_small_core:u_core|cnn_sp_ram:fcw_ram|altsyncram:mem_rtl_0|altsyncram_q4g1:auto_generated|ALTSYNCRAM   ; M10K block ; ROM              ; 7840         ; 8            ; --           ; --           ; 62720  ; db/cnn_full_small.ram0_cnn_sp_ram_f98867b6.hdl.mif ;
+; cnn_small_core:u_core|cnn_sp_ram:image_ram|altsyncram:mem_rtl_0|altsyncram_62g1:auto_generated|ALTSYNCRAM ; M10K block ; ROM              ; 784          ; 8            ; --           ; --           ; 6272   ; db/cnn_full_small.ram0_cnn_sp_ram_c2d32500.hdl.mif ;
+; cnn_small_core:u_core|cnn_sp_ram:p1_ram|altsyncram:mem_rtl_0|altsyncram_r9p1:auto_generated|ALTSYNCRAM    ; M10K block ; Simple Dual Port ; 1568         ; 32           ; 1568         ; 32           ; 50176  ; None                                               ;
+; cnn_small_core:u_core|cnn_sp_ram:p2_ram|altsyncram:mem_rtl_0|altsyncram_n6p1:auto_generated|ALTSYNCRAM    ; M10K block ; Simple Dual Port ; 784          ; 32           ; 784          ; 32           ; 25088  ; None                                               ;
++-----------------------------------------------------------------------------------------------------------+------------+------------------+--------------+--------------+--------------+--------------+--------+----------------------------------------------------+
+
+
++-------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary    ;
++-----------------------------------+-------------+
+; Statistic                         ; Number Used ;
++-----------------------------------+-------------+
+; Two Independent 18x18             ; 11          ;
+; Independent 18x18 plus 36         ; 2           ;
+; Total number of DSP blocks        ; 13          ;
+;                                   ;             ;
+; Fixed Point Signed Multiplier     ; 3           ;
+; Fixed Point Unsigned Multiplier   ; 8           ;
+; Fixed Point Mixed Sign Multiplier ; 2           ;
++-----------------------------------+-------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |cnn_fpga_top|cnn_small_core:u_core|state                                                                                                                                                                                                                                                                                                                                                                                                                                                         ;
++------------+------------+------------+------------+------------+------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+------------+-----------+------------+------------+------------+------------+-----------+-----------+------------+-----------+-----------+-----------+-----------+------------+-----------+------------+------------+------------+------------+-----------+-----------+------------+-----------+-----------+-----------+-----------+------------+
+; Name       ; state.P2W3 ; state.P2W2 ; state.P2W1 ; state.P1W3 ; state.P1W2 ; state.P1W1 ; state.FIN ; state.ARG ; state.FCS ; state.FCM ; state.FCW ; state.FCA ; state.P2WR ; state.P2S ; state.P2R3 ; state.P2R2 ; state.P2R1 ; state.P2R0 ; state.P2W ; state.P2A ; state.C2WR ; state.C2S ; state.C2M ; state.C2W ; state.C2A ; state.P1WR ; state.P1S ; state.P1R3 ; state.P1R2 ; state.P1R1 ; state.P1R0 ; state.P1W ; state.P1A ; state.C1WR ; state.C1S ; state.C1M ; state.C1W ; state.C1A ; state.IDLE ;
++------------+------------+------------+------------+------------+------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+------------+-----------+------------+------------+------------+------------+-----------+-----------+------------+-----------+-----------+-----------+-----------+------------+-----------+------------+------------+------------+------------+-----------+-----------+------------+-----------+-----------+-----------+-----------+------------+
+; state.IDLE ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ;
+; state.C1A  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 1         ; 1          ;
+; state.C1W  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 1         ; 0         ; 1          ;
+; state.C1M  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 1         ; 0         ; 0         ; 1          ;
+; state.C1S  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 1         ; 0         ; 0         ; 0         ; 1          ;
+; state.C1WR ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 1          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P1A  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 1         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P1W  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 1         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P1R0 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 1          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P1R1 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 1          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P1R2 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 1          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P1R3 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 1          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P1S  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 1         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P1WR ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.C2A  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 1         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.C2W  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 1         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.C2M  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 1         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.C2S  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 1         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.C2WR ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 1          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P2A  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 1         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P2W  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 1         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P2R0 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 1          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P2R1 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 1          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P2R2 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 1          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P2R3 ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 1          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P2S  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 1         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P2WR ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.FCA  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.FCW  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.FCM  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.FCS  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.ARG  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.FIN  ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P1W1 ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P1W2 ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P1W3 ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P2W1 ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P2W2 ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
+; state.P2W3 ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 0          ; 0         ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0         ; 0         ; 0         ; 0         ; 1          ;
++------------+------------+------------+------------+------------+------------+------------+-----------+-----------+-----------+-----------+-----------+-----------+------------+-----------+------------+------------+------------+------------+-----------+-----------+------------+-----------+-----------+-----------+-----------+------------+-----------+------------+------------+------------+------------+-----------+-----------+------------+-----------+-----------+-----------+-----------+------------+
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; cnn_small_core:u_core|state~37        ; Lost fanout        ;
+; cnn_small_core:u_core|state~38        ; Lost fanout        ;
+; cnn_small_core:u_core|state~39        ; Lost fanout        ;
+; cnn_small_core:u_core|state~40        ; Lost fanout        ;
+; cnn_small_core:u_core|state~41        ; Lost fanout        ;
+; cnn_small_core:u_core|state~42        ; Lost fanout        ;
+; cnn_small_core:u_core|state.FIN       ; Lost fanout        ;
+; Total Number of Removed Registers = 7 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 821   ;
+; Number of registers using Synchronous Clear  ; 603   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 777   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                                         ;
++--------------------------------------------------------+------------------------------------------------------+------+
+; Register Name                                          ; Megafunction                                         ; Type ;
++--------------------------------------------------------+------------------------------------------------------+------+
+; cnn_small_core:u_core|cnn_sp_ram:p2_ram|rdata[0..31]   ; cnn_small_core:u_core|cnn_sp_ram:p2_ram|mem_rtl_0    ; RAM  ;
+; cnn_small_core:u_core|cnn_sp_ram:c2_ram|rdata[0..31]   ; cnn_small_core:u_core|cnn_sp_ram:c2_ram|mem_rtl_0    ; RAM  ;
+; cnn_small_core:u_core|cnn_sp_ram:p1_ram|rdata[0..31]   ; cnn_small_core:u_core|cnn_sp_ram:p1_ram|mem_rtl_0    ; RAM  ;
+; cnn_small_core:u_core|cnn_sp_ram:c1_ram|rdata[0..31]   ; cnn_small_core:u_core|cnn_sp_ram:c1_ram|mem_rtl_0    ; RAM  ;
+; cnn_small_core:u_core|cnn_sp_ram:fcw_ram|rdata[0..7]   ; cnn_small_core:u_core|cnn_sp_ram:fcw_ram|mem_rtl_0   ; RAM  ;
+; cnn_small_core:u_core|cnn_sp_ram:c2w_ram|rdata[0..7]   ; cnn_small_core:u_core|cnn_sp_ram:c2w_ram|mem_rtl_0   ; RAM  ;
+; cnn_small_core:u_core|cnn_sp_ram:c1w_ram|rdata[0..7]   ; cnn_small_core:u_core|cnn_sp_ram:c1w_ram|mem_rtl_0   ; RAM  ;
+; cnn_small_core:u_core|cnn_sp_ram:image_ram|rdata[0..7] ; cnn_small_core:u_core|cnn_sp_ram:image_ram|mem_rtl_0 ; RAM  ;
++--------------------------------------------------------+------------------------------------------------------+------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|predicted_class[0] ;
+; 3:1                ; 66 bits   ; 132 LEs       ; 0 LEs                ; 132 LEs                ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|best_value[52]     ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|best_value[63]     ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 23 LEs               ; 46 LEs                 ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|fcw_ra[4]          ;
+; 6:1                ; 12 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|c1_raddr[8]        ;
+; 6:1                ; 11 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|c2_raddr[3]        ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 0 LEs                ; 128 LEs                ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|class_idx[16]      ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 0 LEs                ; 128 LEs                ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|in_ch[24]          ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 0 LEs                ; 160 LEs                ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|fc_feature[16]     ;
+; 9:1                ; 32 bits   ; 192 LEs       ; 64 LEs               ; 128 LEs                ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|pool_max[1]        ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 0 LEs                ; 160 LEs                ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|kc[13]             ;
+; 9:1                ; 17 bits   ; 102 LEs       ; 34 LEs               ; 68 LEs                 ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|image_ra[8]        ;
+; 9:1                ; 32 bits   ; 192 LEs       ; 0 LEs                ; 192 LEs                ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|kr[12]             ;
+; 10:1               ; 32 bits   ; 192 LEs       ; 0 LEs                ; 192 LEs                ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|out_f[30]          ;
+; 10:1               ; 32 bits   ; 192 LEs       ; 0 LEs                ; 192 LEs                ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|pool_c[31]         ;
+; 10:1               ; 11 bits   ; 66 LEs        ; 22 LEs               ; 44 LEs                 ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|c2w_ra[8]          ;
+; 11:1               ; 11 bits   ; 77 LEs        ; 22 LEs               ; 55 LEs                 ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|p1_raddr[5]        ;
+; 12:1               ; 32 bits   ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|out_r[22]          ;
+; 12:1               ; 32 bits   ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|out_c[14]          ;
+; 12:1               ; 32 bits   ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|pool_ch[30]        ;
+; 12:1               ; 32 bits   ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|pool_r[12]         ;
+; 24:1               ; 56 bits   ; 896 LEs       ; 504 LEs              ; 392 LEs                ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|acc[17]            ;
+; 40:1               ; 6 bits    ; 156 LEs       ; 120 LEs              ; 36 LEs                 ; Yes        ; |cnn_fpga_top|cnn_small_core:u_core|acc[2]             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Source assignments for cnn_small_core:u_core|cnn_sp_ram:p2_ram|altsyncram:mem_rtl_0|altsyncram_n6p1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                   ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                    ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Source assignments for cnn_small_core:u_core|cnn_sp_ram:c2_ram|altsyncram:mem_rtl_0|altsyncram_f9p1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                   ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                    ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Source assignments for cnn_small_core:u_core|cnn_sp_ram:p1_ram|altsyncram:mem_rtl_0|altsyncram_r9p1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                   ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                    ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Source assignments for cnn_small_core:u_core|cnn_sp_ram:c1_ram|altsyncram:mem_rtl_0|altsyncram_p9p1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                   ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                    ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Source assignments for cnn_small_core:u_core|cnn_sp_ram:fcw_ram|altsyncram:mem_rtl_0|altsyncram_q4g1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                    ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                     ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Source assignments for cnn_small_core:u_core|cnn_sp_ram:c2w_ram|altsyncram:mem_rtl_0|altsyncram_q0g1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                    ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                     ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Source assignments for cnn_small_core:u_core|cnn_sp_ram:c1w_ram|altsyncram:mem_rtl_0|altsyncram_mvf1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                    ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                     ;
++---------------------------------+--------------------+------+-------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Source assignments for cnn_small_core:u_core|cnn_sp_ram:image_ram|altsyncram:mem_rtl_0|altsyncram_62g1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                      ;
++---------------------------------+--------------------+------+---------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                       ;
++---------------------------------+--------------------+------+---------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:image_ram ;
++----------------+----------------------------+-------------------------------------------+
+; Parameter Name ; Value                      ; Type                                      ;
++----------------+----------------------------+-------------------------------------------+
+; WIDTH          ; 8                          ; Signed Integer                            ;
+; DEPTH          ; 784                        ; Signed Integer                            ;
+; AW             ; 10                         ; Signed Integer                            ;
+; INIT_FILE      ; data/mnist_image0_int8.mem ; String                                    ;
++----------------+----------------------------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c1w_ram ;
++----------------+----------------------------+-----------------------------------------+
+; Parameter Name ; Value                      ; Type                                    ;
++----------------+----------------------------+-----------------------------------------+
+; WIDTH          ; 8                          ; Signed Integer                          ;
+; DEPTH          ; 72                         ; Signed Integer                          ;
+; AW             ; 7                          ; Signed Integer                          ;
+; INIT_FILE      ; data/int8/conv1_weight.mem ; String                                  ;
++----------------+----------------------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c2w_ram ;
++----------------+----------------------------+-----------------------------------------+
+; Parameter Name ; Value                      ; Type                                    ;
++----------------+----------------------------+-----------------------------------------+
+; WIDTH          ; 8                          ; Signed Integer                          ;
+; DEPTH          ; 1152                       ; Signed Integer                          ;
+; AW             ; 11                         ; Signed Integer                          ;
+; INIT_FILE      ; data/int8/conv2_weight.mem ; String                                  ;
++----------------+----------------------------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:fcw_ram ;
++----------------+--------------------------+-------------------------------------------+
+; Parameter Name ; Value                    ; Type                                      ;
++----------------+--------------------------+-------------------------------------------+
+; WIDTH          ; 8                        ; Signed Integer                            ;
+; DEPTH          ; 7840                     ; Signed Integer                            ;
+; AW             ; 13                       ; Signed Integer                            ;
+; INIT_FILE      ; data/int8/fc1_weight.mem ; String                                    ;
++----------------+--------------------------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c1_ram ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                              ;
+; DEPTH          ; 6272  ; Signed Integer                                              ;
+; AW             ; 13    ; Signed Integer                                              ;
+; INIT_FILE      ;       ; String                                                      ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:p1_ram ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                              ;
+; DEPTH          ; 1568  ; Signed Integer                                              ;
+; AW             ; 11    ; Signed Integer                                              ;
+; INIT_FILE      ;       ; String                                                      ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c2_ram ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                              ;
+; DEPTH          ; 3136  ; Signed Integer                                              ;
+; AW             ; 12    ; Signed Integer                                              ;
+; INIT_FILE      ;       ; String                                                      ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnn_small_core:u_core|cnn_sp_ram:p2_ram ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                              ;
+; DEPTH          ; 784   ; Signed Integer                                              ;
+; AW             ; 10    ; Signed Integer                                              ;
+; INIT_FILE      ;       ; String                                                      ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:p2_ram|altsyncram:mem_rtl_0 ;
++------------------------------------+----------------------+---------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                              ;
++------------------------------------+----------------------+---------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                           ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                           ;
+; WIDTH_A                            ; 32                   ; Untyped                                           ;
+; WIDTHAD_A                          ; 10                   ; Untyped                                           ;
+; NUMWORDS_A                         ; 784                  ; Untyped                                           ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WIDTH_B                            ; 32                   ; Untyped                                           ;
+; WIDTHAD_B                          ; 10                   ; Untyped                                           ;
+; NUMWORDS_B                         ; 784                  ; Untyped                                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                           ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                           ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                           ;
+; RAM_BLOCK_TYPE                     ; M10K                 ; Untyped                                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                           ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                           ;
+; CBXI_PARAMETER                     ; altsyncram_n6p1      ; Untyped                                           ;
++------------------------------------+----------------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c2_ram|altsyncram:mem_rtl_0 ;
++------------------------------------+----------------------+---------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                              ;
++------------------------------------+----------------------+---------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                           ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                           ;
+; WIDTH_A                            ; 32                   ; Untyped                                           ;
+; WIDTHAD_A                          ; 12                   ; Untyped                                           ;
+; NUMWORDS_A                         ; 3136                 ; Untyped                                           ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WIDTH_B                            ; 32                   ; Untyped                                           ;
+; WIDTHAD_B                          ; 12                   ; Untyped                                           ;
+; NUMWORDS_B                         ; 3136                 ; Untyped                                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                           ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                           ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                           ;
+; RAM_BLOCK_TYPE                     ; M10K                 ; Untyped                                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                           ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                           ;
+; CBXI_PARAMETER                     ; altsyncram_f9p1      ; Untyped                                           ;
++------------------------------------+----------------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:p1_ram|altsyncram:mem_rtl_0 ;
++------------------------------------+----------------------+---------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                              ;
++------------------------------------+----------------------+---------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                           ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                           ;
+; WIDTH_A                            ; 32                   ; Untyped                                           ;
+; WIDTHAD_A                          ; 11                   ; Untyped                                           ;
+; NUMWORDS_A                         ; 1568                 ; Untyped                                           ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WIDTH_B                            ; 32                   ; Untyped                                           ;
+; WIDTHAD_B                          ; 11                   ; Untyped                                           ;
+; NUMWORDS_B                         ; 1568                 ; Untyped                                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                           ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                           ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                           ;
+; RAM_BLOCK_TYPE                     ; M10K                 ; Untyped                                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                           ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                           ;
+; CBXI_PARAMETER                     ; altsyncram_r9p1      ; Untyped                                           ;
++------------------------------------+----------------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c1_ram|altsyncram:mem_rtl_0 ;
++------------------------------------+----------------------+---------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                              ;
++------------------------------------+----------------------+---------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                           ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                           ;
+; WIDTH_A                            ; 32                   ; Untyped                                           ;
+; WIDTHAD_A                          ; 13                   ; Untyped                                           ;
+; NUMWORDS_A                         ; 6272                 ; Untyped                                           ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WIDTH_B                            ; 32                   ; Untyped                                           ;
+; WIDTHAD_B                          ; 13                   ; Untyped                                           ;
+; NUMWORDS_B                         ; 6272                 ; Untyped                                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                           ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                           ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                           ;
+; RAM_BLOCK_TYPE                     ; M10K                 ; Untyped                                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                           ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                           ;
+; CBXI_PARAMETER                     ; altsyncram_p9p1      ; Untyped                                           ;
++------------------------------------+----------------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:fcw_ram|altsyncram:mem_rtl_0 ;
++------------------------------------+----------------------------------------------------+----------------------+
+; Parameter Name                     ; Value                                              ; Type                 ;
++------------------------------------+----------------------------------------------------+----------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                  ; Untyped              ;
+; AUTO_CARRY_CHAINS                  ; ON                                                 ; AUTO_CARRY           ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                                ; IGNORE_CARRY         ;
+; AUTO_CASCADE_CHAINS                ; ON                                                 ; AUTO_CASCADE         ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                                ; IGNORE_CASCADE       ;
+; WIDTH_BYTEENA                      ; 1                                                  ; Untyped              ;
+; OPERATION_MODE                     ; ROM                                                ; Untyped              ;
+; WIDTH_A                            ; 8                                                  ; Untyped              ;
+; WIDTHAD_A                          ; 13                                                 ; Untyped              ;
+; NUMWORDS_A                         ; 7840                                               ; Untyped              ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                       ; Untyped              ;
+; ADDRESS_ACLR_A                     ; NONE                                               ; Untyped              ;
+; OUTDATA_ACLR_A                     ; NONE                                               ; Untyped              ;
+; WRCONTROL_ACLR_A                   ; NONE                                               ; Untyped              ;
+; INDATA_ACLR_A                      ; NONE                                               ; Untyped              ;
+; BYTEENA_ACLR_A                     ; NONE                                               ; Untyped              ;
+; WIDTH_B                            ; 1                                                  ; Untyped              ;
+; WIDTHAD_B                          ; 1                                                  ; Untyped              ;
+; NUMWORDS_B                         ; 1                                                  ; Untyped              ;
+; INDATA_REG_B                       ; CLOCK1                                             ; Untyped              ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                             ; Untyped              ;
+; RDCONTROL_REG_B                    ; CLOCK1                                             ; Untyped              ;
+; ADDRESS_REG_B                      ; CLOCK1                                             ; Untyped              ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                       ; Untyped              ;
+; BYTEENA_REG_B                      ; CLOCK1                                             ; Untyped              ;
+; INDATA_ACLR_B                      ; NONE                                               ; Untyped              ;
+; WRCONTROL_ACLR_B                   ; NONE                                               ; Untyped              ;
+; ADDRESS_ACLR_B                     ; NONE                                               ; Untyped              ;
+; OUTDATA_ACLR_B                     ; NONE                                               ; Untyped              ;
+; RDCONTROL_ACLR_B                   ; NONE                                               ; Untyped              ;
+; BYTEENA_ACLR_B                     ; NONE                                               ; Untyped              ;
+; WIDTH_BYTEENA_A                    ; 1                                                  ; Untyped              ;
+; WIDTH_BYTEENA_B                    ; 1                                                  ; Untyped              ;
+; RAM_BLOCK_TYPE                     ; M10K                                               ; Untyped              ;
+; BYTE_SIZE                          ; 8                                                  ; Untyped              ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                          ; Untyped              ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                               ; Untyped              ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                               ; Untyped              ;
+; INIT_FILE                          ; db/cnn_full_small.ram0_cnn_sp_ram_f98867b6.hdl.mif ; Untyped              ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                             ; Untyped              ;
+; MAXIMUM_DEPTH                      ; 0                                                  ; Untyped              ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                             ; Untyped              ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                             ; Untyped              ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                             ; Untyped              ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                             ; Untyped              ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                    ; Untyped              ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                    ; Untyped              ;
+; ENABLE_ECC                         ; FALSE                                              ; Untyped              ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                              ; Untyped              ;
+; WIDTH_ECCSTATUS                    ; 3                                                  ; Untyped              ;
+; DEVICE_FAMILY                      ; Cyclone V                                          ; Untyped              ;
+; CBXI_PARAMETER                     ; altsyncram_q4g1                                    ; Untyped              ;
++------------------------------------+----------------------------------------------------+----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c2w_ram|altsyncram:mem_rtl_0 ;
++------------------------------------+----------------------------------------------------+----------------------+
+; Parameter Name                     ; Value                                              ; Type                 ;
++------------------------------------+----------------------------------------------------+----------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                  ; Untyped              ;
+; AUTO_CARRY_CHAINS                  ; ON                                                 ; AUTO_CARRY           ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                                ; IGNORE_CARRY         ;
+; AUTO_CASCADE_CHAINS                ; ON                                                 ; AUTO_CASCADE         ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                                ; IGNORE_CASCADE       ;
+; WIDTH_BYTEENA                      ; 1                                                  ; Untyped              ;
+; OPERATION_MODE                     ; ROM                                                ; Untyped              ;
+; WIDTH_A                            ; 8                                                  ; Untyped              ;
+; WIDTHAD_A                          ; 11                                                 ; Untyped              ;
+; NUMWORDS_A                         ; 1152                                               ; Untyped              ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                       ; Untyped              ;
+; ADDRESS_ACLR_A                     ; NONE                                               ; Untyped              ;
+; OUTDATA_ACLR_A                     ; NONE                                               ; Untyped              ;
+; WRCONTROL_ACLR_A                   ; NONE                                               ; Untyped              ;
+; INDATA_ACLR_A                      ; NONE                                               ; Untyped              ;
+; BYTEENA_ACLR_A                     ; NONE                                               ; Untyped              ;
+; WIDTH_B                            ; 1                                                  ; Untyped              ;
+; WIDTHAD_B                          ; 1                                                  ; Untyped              ;
+; NUMWORDS_B                         ; 1                                                  ; Untyped              ;
+; INDATA_REG_B                       ; CLOCK1                                             ; Untyped              ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                             ; Untyped              ;
+; RDCONTROL_REG_B                    ; CLOCK1                                             ; Untyped              ;
+; ADDRESS_REG_B                      ; CLOCK1                                             ; Untyped              ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                       ; Untyped              ;
+; BYTEENA_REG_B                      ; CLOCK1                                             ; Untyped              ;
+; INDATA_ACLR_B                      ; NONE                                               ; Untyped              ;
+; WRCONTROL_ACLR_B                   ; NONE                                               ; Untyped              ;
+; ADDRESS_ACLR_B                     ; NONE                                               ; Untyped              ;
+; OUTDATA_ACLR_B                     ; NONE                                               ; Untyped              ;
+; RDCONTROL_ACLR_B                   ; NONE                                               ; Untyped              ;
+; BYTEENA_ACLR_B                     ; NONE                                               ; Untyped              ;
+; WIDTH_BYTEENA_A                    ; 1                                                  ; Untyped              ;
+; WIDTH_BYTEENA_B                    ; 1                                                  ; Untyped              ;
+; RAM_BLOCK_TYPE                     ; M10K                                               ; Untyped              ;
+; BYTE_SIZE                          ; 8                                                  ; Untyped              ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                          ; Untyped              ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                               ; Untyped              ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                               ; Untyped              ;
+; INIT_FILE                          ; db/cnn_full_small.ram0_cnn_sp_ram_60396215.hdl.mif ; Untyped              ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                             ; Untyped              ;
+; MAXIMUM_DEPTH                      ; 0                                                  ; Untyped              ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                             ; Untyped              ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                             ; Untyped              ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                             ; Untyped              ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                             ; Untyped              ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                    ; Untyped              ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                    ; Untyped              ;
+; ENABLE_ECC                         ; FALSE                                              ; Untyped              ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                              ; Untyped              ;
+; WIDTH_ECCSTATUS                    ; 3                                                  ; Untyped              ;
+; DEVICE_FAMILY                      ; Cyclone V                                          ; Untyped              ;
+; CBXI_PARAMETER                     ; altsyncram_q0g1                                    ; Untyped              ;
++------------------------------------+----------------------------------------------------+----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:c1w_ram|altsyncram:mem_rtl_0 ;
++------------------------------------+----------------------------------------------------+----------------------+
+; Parameter Name                     ; Value                                              ; Type                 ;
++------------------------------------+----------------------------------------------------+----------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                  ; Untyped              ;
+; AUTO_CARRY_CHAINS                  ; ON                                                 ; AUTO_CARRY           ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                                ; IGNORE_CARRY         ;
+; AUTO_CASCADE_CHAINS                ; ON                                                 ; AUTO_CASCADE         ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                                ; IGNORE_CASCADE       ;
+; WIDTH_BYTEENA                      ; 1                                                  ; Untyped              ;
+; OPERATION_MODE                     ; ROM                                                ; Untyped              ;
+; WIDTH_A                            ; 8                                                  ; Untyped              ;
+; WIDTHAD_A                          ; 7                                                  ; Untyped              ;
+; NUMWORDS_A                         ; 72                                                 ; Untyped              ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                       ; Untyped              ;
+; ADDRESS_ACLR_A                     ; NONE                                               ; Untyped              ;
+; OUTDATA_ACLR_A                     ; NONE                                               ; Untyped              ;
+; WRCONTROL_ACLR_A                   ; NONE                                               ; Untyped              ;
+; INDATA_ACLR_A                      ; NONE                                               ; Untyped              ;
+; BYTEENA_ACLR_A                     ; NONE                                               ; Untyped              ;
+; WIDTH_B                            ; 1                                                  ; Untyped              ;
+; WIDTHAD_B                          ; 1                                                  ; Untyped              ;
+; NUMWORDS_B                         ; 1                                                  ; Untyped              ;
+; INDATA_REG_B                       ; CLOCK1                                             ; Untyped              ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                             ; Untyped              ;
+; RDCONTROL_REG_B                    ; CLOCK1                                             ; Untyped              ;
+; ADDRESS_REG_B                      ; CLOCK1                                             ; Untyped              ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                       ; Untyped              ;
+; BYTEENA_REG_B                      ; CLOCK1                                             ; Untyped              ;
+; INDATA_ACLR_B                      ; NONE                                               ; Untyped              ;
+; WRCONTROL_ACLR_B                   ; NONE                                               ; Untyped              ;
+; ADDRESS_ACLR_B                     ; NONE                                               ; Untyped              ;
+; OUTDATA_ACLR_B                     ; NONE                                               ; Untyped              ;
+; RDCONTROL_ACLR_B                   ; NONE                                               ; Untyped              ;
+; BYTEENA_ACLR_B                     ; NONE                                               ; Untyped              ;
+; WIDTH_BYTEENA_A                    ; 1                                                  ; Untyped              ;
+; WIDTH_BYTEENA_B                    ; 1                                                  ; Untyped              ;
+; RAM_BLOCK_TYPE                     ; M10K                                               ; Untyped              ;
+; BYTE_SIZE                          ; 8                                                  ; Untyped              ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                          ; Untyped              ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                               ; Untyped              ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                               ; Untyped              ;
+; INIT_FILE                          ; db/cnn_full_small.ram0_cnn_sp_ram_9b7b8551.hdl.mif ; Untyped              ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                             ; Untyped              ;
+; MAXIMUM_DEPTH                      ; 0                                                  ; Untyped              ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                             ; Untyped              ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                             ; Untyped              ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                             ; Untyped              ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                             ; Untyped              ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                    ; Untyped              ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                    ; Untyped              ;
+; ENABLE_ECC                         ; FALSE                                              ; Untyped              ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                              ; Untyped              ;
+; WIDTH_ECCSTATUS                    ; 3                                                  ; Untyped              ;
+; DEVICE_FAMILY                      ; Cyclone V                                          ; Untyped              ;
+; CBXI_PARAMETER                     ; altsyncram_mvf1                                    ; Untyped              ;
++------------------------------------+----------------------------------------------------+----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: cnn_small_core:u_core|cnn_sp_ram:image_ram|altsyncram:mem_rtl_0 ;
++------------------------------------+----------------------------------------------------+------------------------+
+; Parameter Name                     ; Value                                              ; Type                   ;
++------------------------------------+----------------------------------------------------+------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                  ; Untyped                ;
+; AUTO_CARRY_CHAINS                  ; ON                                                 ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                                ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS                ; ON                                                 ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                                ; IGNORE_CASCADE         ;
+; WIDTH_BYTEENA                      ; 1                                                  ; Untyped                ;
+; OPERATION_MODE                     ; ROM                                                ; Untyped                ;
+; WIDTH_A                            ; 8                                                  ; Untyped                ;
+; WIDTHAD_A                          ; 10                                                 ; Untyped                ;
+; NUMWORDS_A                         ; 784                                                ; Untyped                ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                       ; Untyped                ;
+; ADDRESS_ACLR_A                     ; NONE                                               ; Untyped                ;
+; OUTDATA_ACLR_A                     ; NONE                                               ; Untyped                ;
+; WRCONTROL_ACLR_A                   ; NONE                                               ; Untyped                ;
+; INDATA_ACLR_A                      ; NONE                                               ; Untyped                ;
+; BYTEENA_ACLR_A                     ; NONE                                               ; Untyped                ;
+; WIDTH_B                            ; 1                                                  ; Untyped                ;
+; WIDTHAD_B                          ; 1                                                  ; Untyped                ;
+; NUMWORDS_B                         ; 1                                                  ; Untyped                ;
+; INDATA_REG_B                       ; CLOCK1                                             ; Untyped                ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                             ; Untyped                ;
+; RDCONTROL_REG_B                    ; CLOCK1                                             ; Untyped                ;
+; ADDRESS_REG_B                      ; CLOCK1                                             ; Untyped                ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                       ; Untyped                ;
+; BYTEENA_REG_B                      ; CLOCK1                                             ; Untyped                ;
+; INDATA_ACLR_B                      ; NONE                                               ; Untyped                ;
+; WRCONTROL_ACLR_B                   ; NONE                                               ; Untyped                ;
+; ADDRESS_ACLR_B                     ; NONE                                               ; Untyped                ;
+; OUTDATA_ACLR_B                     ; NONE                                               ; Untyped                ;
+; RDCONTROL_ACLR_B                   ; NONE                                               ; Untyped                ;
+; BYTEENA_ACLR_B                     ; NONE                                               ; Untyped                ;
+; WIDTH_BYTEENA_A                    ; 1                                                  ; Untyped                ;
+; WIDTH_BYTEENA_B                    ; 1                                                  ; Untyped                ;
+; RAM_BLOCK_TYPE                     ; M10K                                               ; Untyped                ;
+; BYTE_SIZE                          ; 8                                                  ; Untyped                ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                          ; Untyped                ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                               ; Untyped                ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                               ; Untyped                ;
+; INIT_FILE                          ; db/cnn_full_small.ram0_cnn_sp_ram_c2d32500.hdl.mif ; Untyped                ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                             ; Untyped                ;
+; MAXIMUM_DEPTH                      ; 0                                                  ; Untyped                ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                             ; Untyped                ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                             ; Untyped                ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                             ; Untyped                ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                             ; Untyped                ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                    ; Untyped                ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                    ; Untyped                ;
+; ENABLE_ECC                         ; FALSE                                              ; Untyped                ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                              ; Untyped                ;
+; WIDTH_ECCSTATUS                    ; 3                                                  ; Untyped                ;
+; DEVICE_FAMILY                      ; Cyclone V                                          ; Untyped                ;
+; CBXI_PARAMETER                     ; altsyncram_62g1                                    ; Untyped                ;
++------------------------------------+----------------------------------------------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                            ;
++-------------------------------------------+-----------------------------------------------------------------+
+; Name                                      ; Value                                                           ;
++-------------------------------------------+-----------------------------------------------------------------+
+; Number of entity instances                ; 8                                                               ;
+; Entity Instance                           ; cnn_small_core:u_core|cnn_sp_ram:p2_ram|altsyncram:mem_rtl_0    ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                       ;
+;     -- WIDTH_A                            ; 32                                                              ;
+;     -- NUMWORDS_A                         ; 784                                                             ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                    ;
+;     -- WIDTH_B                            ; 32                                                              ;
+;     -- NUMWORDS_B                         ; 784                                                             ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                          ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                    ;
+;     -- RAM_BLOCK_TYPE                     ; M10K                                                            ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                        ;
+; Entity Instance                           ; cnn_small_core:u_core|cnn_sp_ram:c2_ram|altsyncram:mem_rtl_0    ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                       ;
+;     -- WIDTH_A                            ; 32                                                              ;
+;     -- NUMWORDS_A                         ; 3136                                                            ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                    ;
+;     -- WIDTH_B                            ; 32                                                              ;
+;     -- NUMWORDS_B                         ; 3136                                                            ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                          ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                    ;
+;     -- RAM_BLOCK_TYPE                     ; M10K                                                            ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                        ;
+; Entity Instance                           ; cnn_small_core:u_core|cnn_sp_ram:p1_ram|altsyncram:mem_rtl_0    ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                       ;
+;     -- WIDTH_A                            ; 32                                                              ;
+;     -- NUMWORDS_A                         ; 1568                                                            ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                    ;
+;     -- WIDTH_B                            ; 32                                                              ;
+;     -- NUMWORDS_B                         ; 1568                                                            ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                          ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                    ;
+;     -- RAM_BLOCK_TYPE                     ; M10K                                                            ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                        ;
+; Entity Instance                           ; cnn_small_core:u_core|cnn_sp_ram:c1_ram|altsyncram:mem_rtl_0    ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                       ;
+;     -- WIDTH_A                            ; 32                                                              ;
+;     -- NUMWORDS_A                         ; 6272                                                            ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                    ;
+;     -- WIDTH_B                            ; 32                                                              ;
+;     -- NUMWORDS_B                         ; 6272                                                            ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                          ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                    ;
+;     -- RAM_BLOCK_TYPE                     ; M10K                                                            ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                        ;
+; Entity Instance                           ; cnn_small_core:u_core|cnn_sp_ram:fcw_ram|altsyncram:mem_rtl_0   ;
+;     -- OPERATION_MODE                     ; ROM                                                             ;
+;     -- WIDTH_A                            ; 8                                                               ;
+;     -- NUMWORDS_A                         ; 7840                                                            ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                    ;
+;     -- WIDTH_B                            ; 1                                                               ;
+;     -- NUMWORDS_B                         ; 1                                                               ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                          ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                    ;
+;     -- RAM_BLOCK_TYPE                     ; M10K                                                            ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                       ;
+; Entity Instance                           ; cnn_small_core:u_core|cnn_sp_ram:c2w_ram|altsyncram:mem_rtl_0   ;
+;     -- OPERATION_MODE                     ; ROM                                                             ;
+;     -- WIDTH_A                            ; 8                                                               ;
+;     -- NUMWORDS_A                         ; 1152                                                            ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                    ;
+;     -- WIDTH_B                            ; 1                                                               ;
+;     -- NUMWORDS_B                         ; 1                                                               ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                          ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                    ;
+;     -- RAM_BLOCK_TYPE                     ; M10K                                                            ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                       ;
+; Entity Instance                           ; cnn_small_core:u_core|cnn_sp_ram:c1w_ram|altsyncram:mem_rtl_0   ;
+;     -- OPERATION_MODE                     ; ROM                                                             ;
+;     -- WIDTH_A                            ; 8                                                               ;
+;     -- NUMWORDS_A                         ; 72                                                              ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                    ;
+;     -- WIDTH_B                            ; 1                                                               ;
+;     -- NUMWORDS_B                         ; 1                                                               ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                          ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                    ;
+;     -- RAM_BLOCK_TYPE                     ; M10K                                                            ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                       ;
+; Entity Instance                           ; cnn_small_core:u_core|cnn_sp_ram:image_ram|altsyncram:mem_rtl_0 ;
+;     -- OPERATION_MODE                     ; ROM                                                             ;
+;     -- WIDTH_A                            ; 8                                                               ;
+;     -- NUMWORDS_A                         ; 784                                                             ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                    ;
+;     -- WIDTH_B                            ; 1                                                               ;
+;     -- NUMWORDS_B                         ; 1                                                               ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                          ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                    ;
+;     -- RAM_BLOCK_TYPE                     ; M10K                                                            ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                       ;
++-------------------------------------------+-----------------------------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "cnn_small_core:u_core|cnn_sp_ram:fcw_ram" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; we    ; Input ; Info     ; Stuck at GND                              ;
+; waddr ; Input ; Info     ; Stuck at GND                              ;
+; wdata ; Input ; Info     ; Stuck at GND                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "cnn_small_core:u_core|cnn_sp_ram:c2w_ram" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; we    ; Input ; Info     ; Stuck at GND                              ;
+; waddr ; Input ; Info     ; Stuck at GND                              ;
+; wdata ; Input ; Info     ; Stuck at GND                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "cnn_small_core:u_core|cnn_sp_ram:c1w_ram" ;
++-------+-------+----------+-------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                   ;
++-------+-------+----------+-------------------------------------------+
+; we    ; Input ; Info     ; Stuck at GND                              ;
+; waddr ; Input ; Info     ; Stuck at GND                              ;
+; wdata ; Input ; Info     ; Stuck at GND                              ;
++-------+-------+----------+-------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "cnn_small_core:u_core|cnn_sp_ram:image_ram" ;
++-------+-------+----------+---------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                     ;
++-------+-------+----------+---------------------------------------------+
+; we    ; Input ; Info     ; Stuck at GND                                ;
+; waddr ; Input ; Info     ; Stuck at GND                                ;
+; wdata ; Input ; Info     ; Stuck at GND                                ;
++-------+-------+----------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cnn_small_core:u_core"                                                                     ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; done        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; cycle_count ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 821                         ;
+;     ENA               ; 186                         ;
+;     ENA SCLR          ; 591                         ;
+;     SCLR              ; 12                          ;
+;     plain             ; 32                          ;
+; arriav_lcell_comb     ; 1917                        ;
+;     arith             ; 786                         ;
+;         1 data inputs ; 409                         ;
+;         2 data inputs ; 365                         ;
+;         3 data inputs ; 12                          ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 789                         ;
+;         2 data inputs ; 151                         ;
+;         3 data inputs ; 110                         ;
+;         4 data inputs ; 123                         ;
+;         5 data inputs ; 122                         ;
+;         6 data inputs ; 283                         ;
+;     shared            ; 341                         ;
+;         1 data inputs ; 22                          ;
+;         2 data inputs ; 191                         ;
+;         3 data inputs ; 128                         ;
+; arriav_mac            ; 13                          ;
+; boundary_port         ; 6                           ;
+; stratixv_ram_block    ; 160                         ;
+;                       ;                             ;
+; Max LUT depth         ; 9.30                        ;
+; Average LUT depth     ; 4.95                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Processing started: Fri Sep 11 02:22:19 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cnn_full_small -c cnn_full_small
+Info (20032): Parallel compilation is enabled and will use up to 8 processors
+Info (12021): Found 2 design units, including 2 entities, in source file rtl/cnn_small_core_m10k.v
+    Info (12023): Found entity 1: cnn_sp_ram File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 4
+    Info (12023): Found entity 2: cnn_small_core File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 32
+Info (12021): Found 1 design units, including 1 entities, in source file rtl/cnn_fpga_top.v
+    Info (12023): Found entity 1: cnn_fpga_top File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_fpga_top.v Line: 3
+Info (12127): Elaborating entity "cnn_fpga_top" for the top level hierarchy
+Info (12128): Elaborating entity "cnn_small_core" for hierarchy "cnn_small_core:u_core" File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_fpga_top.v Line: 45
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(176): truncated value with size 32 to match size of target (10) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 176
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(177): truncated value with size 32 to match size of target (7) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 177
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(204): truncated value with size 32 to match size of target (10) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 204
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(205): truncated value with size 32 to match size of target (7) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 205
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(217): truncated value with size 32 to match size of target (10) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 217
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(218): truncated value with size 32 to match size of target (7) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 218
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(229): truncated value with size 32 to match size of target (13) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 229
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(265): truncated value with size 32 to match size of target (13) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 265
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(275): truncated value with size 32 to match size of target (13) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 275
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(282): truncated value with size 32 to match size of target (13) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 282
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(289): truncated value with size 32 to match size of target (13) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 289
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(301): truncated value with size 32 to match size of target (11) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 301
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(333): truncated value with size 32 to match size of target (11) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 333
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(334): truncated value with size 32 to match size of target (11) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 334
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(362): truncated value with size 32 to match size of target (11) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 362
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(367): truncated value with size 32 to match size of target (11) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 367
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(375): truncated value with size 32 to match size of target (11) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 375
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(376): truncated value with size 32 to match size of target (11) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 376
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(389): truncated value with size 32 to match size of target (11) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 389
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(390): truncated value with size 32 to match size of target (11) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 390
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(402): truncated value with size 32 to match size of target (12) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 402
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(435): truncated value with size 32 to match size of target (12) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 435
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(444): truncated value with size 32 to match size of target (12) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 444
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(450): truncated value with size 32 to match size of target (12) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 450
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(456): truncated value with size 32 to match size of target (12) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 456
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(468): truncated value with size 32 to match size of target (10) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 468
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(497): truncated value with size 32 to match size of target (10) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 497
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(498): truncated value with size 32 to match size of target (13) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 498
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(511): truncated value with size 32 to match size of target (10) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 511
+Warning (10230): Verilog HDL assignment warning at cnn_small_core_m10k.v(512): truncated value with size 32 to match size of target (13) File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 512
+Info (12128): Elaborating entity "cnn_sp_ram" for hierarchy "cnn_small_core:u_core|cnn_sp_ram:image_ram" File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 63
+Info (12128): Elaborating entity "cnn_sp_ram" for hierarchy "cnn_small_core:u_core|cnn_sp_ram:c1w_ram" File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 68
+Info (12128): Elaborating entity "cnn_sp_ram" for hierarchy "cnn_small_core:u_core|cnn_sp_ram:c2w_ram" File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 73
+Info (12128): Elaborating entity "cnn_sp_ram" for hierarchy "cnn_small_core:u_core|cnn_sp_ram:fcw_ram" File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 78
+Info (12128): Elaborating entity "cnn_sp_ram" for hierarchy "cnn_small_core:u_core|cnn_sp_ram:c1_ram" File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 105
+Info (12128): Elaborating entity "cnn_sp_ram" for hierarchy "cnn_small_core:u_core|cnn_sp_ram:p1_ram" File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 109
+Info (12128): Elaborating entity "cnn_sp_ram" for hierarchy "cnn_small_core:u_core|cnn_sp_ram:c2_ram" File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 113
+Info (12128): Elaborating entity "cnn_sp_ram" for hierarchy "cnn_small_core:u_core|cnn_sp_ram:p2_ram" File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 117
+Info (19000): Inferred 8 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "cnn_small_core:u_core|cnn_sp_ram:p2_ram|mem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 10
+        Info (286033): Parameter NUMWORDS_A set to 784
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 10
+        Info (286033): Parameter NUMWORDS_B set to 784
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "cnn_small_core:u_core|cnn_sp_ram:c2_ram|mem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 12
+        Info (286033): Parameter NUMWORDS_A set to 3136
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 12
+        Info (286033): Parameter NUMWORDS_B set to 3136
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "cnn_small_core:u_core|cnn_sp_ram:p1_ram|mem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 11
+        Info (286033): Parameter NUMWORDS_A set to 1568
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 11
+        Info (286033): Parameter NUMWORDS_B set to 1568
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "cnn_small_core:u_core|cnn_sp_ram:c1_ram|mem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 13
+        Info (286033): Parameter NUMWORDS_A set to 6272
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 13
+        Info (286033): Parameter NUMWORDS_B set to 6272
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "cnn_small_core:u_core|cnn_sp_ram:fcw_ram|mem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 13
+        Info (286033): Parameter NUMWORDS_A set to 7840
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter INIT_FILE set to db/cnn_full_small.ram0_cnn_sp_ram_f98867b6.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "cnn_small_core:u_core|cnn_sp_ram:c2w_ram|mem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 11
+        Info (286033): Parameter NUMWORDS_A set to 1152
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter INIT_FILE set to db/cnn_full_small.ram0_cnn_sp_ram_60396215.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "cnn_small_core:u_core|cnn_sp_ram:c1w_ram|mem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 7
+        Info (286033): Parameter NUMWORDS_A set to 72
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter INIT_FILE set to db/cnn_full_small.ram0_cnn_sp_ram_9b7b8551.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "cnn_small_core:u_core|cnn_sp_ram:image_ram|mem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 10
+        Info (286033): Parameter NUMWORDS_A set to 784
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter RAM_BLOCK_TYPE set to M10K
+        Info (286033): Parameter INIT_FILE set to db/cnn_full_small.ram0_cnn_sp_ram_c2d32500.hdl.mif
+Info (12130): Elaborated megafunction instantiation "cnn_small_core:u_core|cnn_sp_ram:p2_ram|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "cnn_small_core:u_core|cnn_sp_ram:p2_ram|altsyncram:mem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "10"
+    Info (12134): Parameter "NUMWORDS_A" = "784"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "10"
+    Info (12134): Parameter "NUMWORDS_B" = "784"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_n6p1.tdf
+    Info (12023): Found entity 1: altsyncram_n6p1 File: /home/raone/DE10_Project/cnn_full_small/db/altsyncram_n6p1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "cnn_small_core:u_core|cnn_sp_ram:c2_ram|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "cnn_small_core:u_core|cnn_sp_ram:c2_ram|altsyncram:mem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "12"
+    Info (12134): Parameter "NUMWORDS_A" = "3136"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "12"
+    Info (12134): Parameter "NUMWORDS_B" = "3136"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_f9p1.tdf
+    Info (12023): Found entity 1: altsyncram_f9p1 File: /home/raone/DE10_Project/cnn_full_small/db/altsyncram_f9p1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "cnn_small_core:u_core|cnn_sp_ram:p1_ram|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "cnn_small_core:u_core|cnn_sp_ram:p1_ram|altsyncram:mem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "11"
+    Info (12134): Parameter "NUMWORDS_A" = "1568"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "11"
+    Info (12134): Parameter "NUMWORDS_B" = "1568"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_r9p1.tdf
+    Info (12023): Found entity 1: altsyncram_r9p1 File: /home/raone/DE10_Project/cnn_full_small/db/altsyncram_r9p1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "cnn_small_core:u_core|cnn_sp_ram:c1_ram|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "cnn_small_core:u_core|cnn_sp_ram:c1_ram|altsyncram:mem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "13"
+    Info (12134): Parameter "NUMWORDS_A" = "6272"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "13"
+    Info (12134): Parameter "NUMWORDS_B" = "6272"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_p9p1.tdf
+    Info (12023): Found entity 1: altsyncram_p9p1 File: /home/raone/DE10_Project/cnn_full_small/db/altsyncram_p9p1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "cnn_small_core:u_core|cnn_sp_ram:fcw_ram|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "cnn_small_core:u_core|cnn_sp_ram:fcw_ram|altsyncram:mem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "13"
+    Info (12134): Parameter "NUMWORDS_A" = "7840"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "INIT_FILE" = "db/cnn_full_small.ram0_cnn_sp_ram_f98867b6.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_q4g1.tdf
+    Info (12023): Found entity 1: altsyncram_q4g1 File: /home/raone/DE10_Project/cnn_full_small/db/altsyncram_q4g1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "cnn_small_core:u_core|cnn_sp_ram:c2w_ram|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "cnn_small_core:u_core|cnn_sp_ram:c2w_ram|altsyncram:mem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "11"
+    Info (12134): Parameter "NUMWORDS_A" = "1152"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "INIT_FILE" = "db/cnn_full_small.ram0_cnn_sp_ram_60396215.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_q0g1.tdf
+    Info (12023): Found entity 1: altsyncram_q0g1 File: /home/raone/DE10_Project/cnn_full_small/db/altsyncram_q0g1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "cnn_small_core:u_core|cnn_sp_ram:c1w_ram|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "cnn_small_core:u_core|cnn_sp_ram:c1w_ram|altsyncram:mem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "7"
+    Info (12134): Parameter "NUMWORDS_A" = "72"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "INIT_FILE" = "db/cnn_full_small.ram0_cnn_sp_ram_9b7b8551.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_mvf1.tdf
+    Info (12023): Found entity 1: altsyncram_mvf1 File: /home/raone/DE10_Project/cnn_full_small/db/altsyncram_mvf1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "cnn_small_core:u_core|cnn_sp_ram:image_ram|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "cnn_small_core:u_core|cnn_sp_ram:image_ram|altsyncram:mem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "10"
+    Info (12134): Parameter "NUMWORDS_A" = "784"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M10K"
+    Info (12134): Parameter "INIT_FILE" = "db/cnn_full_small.ram0_cnn_sp_ram_c2d32500.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_62g1.tdf
+    Info (12023): Found entity 1: altsyncram_62g1 File: /home/raone/DE10_Project/cnn_full_small/db/altsyncram_62g1.tdf Line: 28
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 7 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file /home/raone/DE10_Project/cnn_full_small/cnn_full_small.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 2399 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 4 output pins
+    Info (21061): Implemented 2220 logic cells
+    Info (21064): Implemented 160 RAM segments
+    Info (21062): Implemented 13 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 30 warnings
+    Info: Peak virtual memory: 566 megabytes
+    Info: Processing ended: Fri Sep 11 02:22:30 2026
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:21
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/raone/DE10_Project/cnn_full_small/cnn_full_small.map.smsg.
+
+

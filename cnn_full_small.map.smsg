@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at cnn_small_core_m10k.v(145): always construct contains both blocking and non-blocking assignments File: /home/raone/DE10_Project/cnn_full_small/rtl/cnn_small_core_m10k.v Line: 145
